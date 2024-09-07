@@ -1,0 +1,26 @@
+{
+    "File1": {
+        "prefix": "data_",
+        "suffix": "2023",
+        "start_row": 2,
+        "fields": ["field1", "field2", "field3"]
+    },
+    "File2": {
+        "prefix": "info_",
+        "suffix": "2023",
+        "start_row": 3,
+        "fields": ["field1", "field2", "field3", "field4"]
+    },
+    "File3": {
+        "prefix": "summary_",
+        "suffix": "2023",
+        "start_row": 1,
+        "fields": ["fieldA", "fieldB"]
+    },
+    "File4": {
+        "prefix": "report_",
+        "suffix": "2023",
+        "start_row": 4,
+        "fields": ["fieldX", "fieldY", "fieldZ"]
+    }
+}

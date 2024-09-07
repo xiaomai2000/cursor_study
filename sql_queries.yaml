@@ -1,0 +1,11 @@
+process_data:
+  query: |
+    UPDATE your_table
+    SET processed = 1
+    WHERE condition = true;
+
+
+
+
+
+
