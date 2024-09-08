@@ -1,4 +1,4 @@
-Non-Prod:
+Non_Prod:
   DB:
     SERVER: nonprod_server
     DATABASE: nonprod_database
@@ -26,6 +26,6 @@ Prod:
 
 Unit_Test:
   DB:
-    DATABASE: 'sqlite:///your_local_sqlite.db'  # SQLite数据库文件路径
-  default_export_path: "path/to/test_exports/"
+    DATABASE: './sqlite3dbfiles/unittest.db'  # SQLite数据库文件路径
+  default_export_path: "./tests/testout.sqlite3.parquet"
 

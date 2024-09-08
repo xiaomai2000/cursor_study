@@ -12,8 +12,8 @@ class DBUtils:
 
     @staticmethod
     def get_db_config():
-        env = os.getenv('APP_ENV', 'Non-Prod')
-        with open("config.yaml", 'r') as stream:
+        env = os.getenv('APP_ENV', 'Non_Prod')
+        with open("config.yaml", 'r', encoding='utf-8') as stream:  # Specify encoding here
             config = yaml.safe_load(stream)
         db_config = config[env]['DB']
         return db_config
@@ -23,7 +23,15 @@ class DBUtils:
         if cls._conn is None:
             db_config = cls.get_db_config()
             if os.getenv('APP_ENV') == "Unit_Test":
-                cls._conn = sqlite3.connect(db_config["DATABASE"])
+                database_path = db_config["DATABASE"]
+                # 确保路径是有效的文件路径
+                if not database_path or "://" in database_path:
+                    raise ValueError(f"数据库路径({database_path})配置不正确")
+                # 确保目录存在
+                database_dir = os.path.dirname(database_path)
+                if database_dir:
+                    os.makedirs(database_dir, exist_ok=True)
+                cls._conn = sqlite3.connect(database_path)
             else:
                 cls._conn = pyodbc.connect(
                     f'DRIVER={{ODBC Driver 17 for SQL Server}};'
@@ -46,28 +54,23 @@ class DBUtils:
         # 进行数据上传操作
         cursor.close()
 
-    @staticmethod
-    def export_to_parquet(table_name, file_name):
-        conn = DBUtils.get_connection()
-        # 导出数据到Parquet文件的逻辑
-        DBUtils.close_connection()  # 可以在适当的时候关闭连接
 
     @staticmethod
     def read_sql_file(file_path):
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:  # Specify encoding here
             return file.read()
 
 class SFTPUtils:
     @staticmethod
     def get_sftp_config():
-        env = os.getenv('APP_ENV', 'Non-Prod')  # 默认为Non-Prod
+        env = os.getenv('APP_ENV', 'Non_Prod')  # 默认为Non-Prod
         with open("config.yaml", 'r') as stream:
             config = yaml.safe_load(stream)
         sftp_config = config[env]['SFTP']
         return sftp_config
 
     @staticmethod
-    def test_sftp_connection(env="Non-Prod"):
+    def test_sftp_connection(env="Non_Prod"):
         sftp_config = SFTPUtils.get_sftp_config(env)
         try:
             key = paramiko.RSAKey.from_private_key_file(sftp_config["PRIVATE_KEY_PATH"])
@@ -86,8 +89,6 @@ class SFTPUtils:
     def upload_file(local_path, remote_path):
         # SFTP上传文件逻辑
         pass
-
-
 
 
 
