@@ -27,5 +27,5 @@ Prod:
 Unit_Test:
   DB:
     DATABASE: './sqlite3dbfiles/unittest.db'  # SQLite数据库文件路径
-  default_export_path: "./tests/testout.sqlite3.parquet"
+  default_export_path: "./tests/"
 

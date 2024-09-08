@@ -46,7 +46,7 @@ class TestSQLite3Case2(unittest.TestCase):
         pd.testing.assert_frame_equal(df, df_read)
 
         # 导出到 Parquet 文件
-        etl_util.export_to_parquet(df_read, 'output.parquet')
+        etl_util.export_to_parquet("test1")
 
     @classmethod
     def tearDownClass(cls):
