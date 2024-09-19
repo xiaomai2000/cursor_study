@@ -2,9 +2,15 @@ import os
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
-from utils import DBUtils
+from db_util import DBUtils
 import yaml
 
+
+
+
+
+
+"""
 def export_to_parquet(table_name, export_file_name=None):
     # 先读取环境变量
     env = os.getenv('APP_ENV', 'Non_Prod')
@@ -33,9 +39,7 @@ def export_to_parquet(table_name, export_file_name=None):
     print(f"Default export path: {default_path}")
     print(f"Final export file name: {export_file_name}")
 
-    # 导出到Parquet文件
-    table = pa.Table.from_pandas(df)
-    pq.write_table(table, export_file_name)
-    print(f"Data exported to {export_file_name}")
 
     return export_file_name
+
+"""

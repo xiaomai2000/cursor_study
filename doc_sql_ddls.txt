@@ -1,0 +1,40 @@
+
+
+-- Create database
+CREATE DATABASE dfinrpt;
+GO
+
+
+
+-- Create table
+
+use dfinrpt
+
+CREATE TABLE t_sbu_cost_map (
+	rpt_cat VARCHAR(50) NOT NULL,
+    sbu VARCHAR(50) NOT NULL,
+    cost_code_bj VARCHAR(50),
+	cost_code_gz VARCHAR(50),
+	cost_code_cd VARCHAR(50),
+    cost_code_my VARCHAR(50),
+	cost_code_other VARCHAR(50),
+	timestamp DATETIME NOT NULL DEFAULT GETDATE()
+);
+GO
+
+
+INSERT INTO t_sbu_cost_map (rpt_cat, sbu, cost_code_bj, cost_code_gz, cost_code_cd, cost_code_my, cost_code_other)
+VALUES
+('ONDEMAND', 'DA', 'CHBJ103','CHGZ103','CHCD103','CHMY103', ''),
+('ONDEMAND', 'IL', 'CHBJ106','CHGZ106','CHCD106','CHMY106', ''),
+('ONDEMAND', 'MGR','CHBJ108','CHGZ108','CHCD108','CHMY109', '')
+GO
+
+
+
+
+
+
+
+
+

@@ -1,31 +1,20 @@
 Non_Prod:
   DB:
-    SERVER: nonprod_server
-    DATABASE: nonprod_database
-    UID: nonprod_user
-    PWD: nonprod_password
-  SFTP:
-    HOST: nonprod_sftp_host
-    PORT: 22
-    USERNAME: nonprod_username
-    PRIVATE_KEY_PATH: nonprod_private_key_path
-  default_export_path: "path/to/nonprod_exports/"
+    TYPE: SQLSERVER
+    SERVER: localhost
+    DATABASE_INSTANCE_NAME: MSSQLSERVER
+    PORT: 1433
+    DATABASE: dfinrpt
+    UID: no_need
+    PWD: no_need
 
 Prod:
   DB:
+    TYPE: SQLSERVER
     SERVER: prod_server
-    DATABASE: prod_database
+    DATABASE_INSTANCE_NAME: MSSQLSERVER
+    PORT: 1433
+    DATABASE: dfinrpt
     UID: prod_user
     PWD: prod_password
-  SFTP:
-    HOST: prod_sftp_host
-    PORT: 22
-    USERNAME: prod_username
-    PRIVATE_KEY_PATH: prod_private_key_path
-  default_export_path: "path/to/prod_exports/"
-
-Unit_Test:
-  DB:
-    DATABASE: './sqlite3dbfiles/unittest.db'  # SQLite数据库文件路径
-  default_export_path: "./tests/"
 

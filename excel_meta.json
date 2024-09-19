@@ -1,26 +1,9 @@
 {
-    "File1": {
-        "prefix": "data_",
-        "suffix": "2023",
-        "start_row": 2,
-        "fields": ["field1", "field2", "field3"]
-    },
-    "File2": {
-        "prefix": "info_",
-        "suffix": "2023",
-        "start_row": 3,
-        "fields": ["field1", "field2", "field3", "field4"]
-    },
-    "File3": {
-        "prefix": "summary_",
-        "suffix": "2023",
+    "sbu_cost_map": {
+        "prefix": "sbu_cost_map",
+        "suffix": "",
         "start_row": 1,
-        "fields": ["fieldA", "fieldB"]
-    },
-    "File4": {
-        "prefix": "report_",
-        "suffix": "2023",
-        "start_row": 4,
-        "fields": ["fieldX", "fieldY", "fieldZ"]
+        "fields": ["Report Category", "Sbu Name", "Cost Center Code - BJ", "Cost Center Code - GZ", "Cost Center Code - MY", "Cost Center Code - Others"],
+        "target_db_table_name": "sbu_cost_map"
     }
 }

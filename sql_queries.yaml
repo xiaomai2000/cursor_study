@@ -1,8 +1,8 @@
-process_data:
-  query: |
-    UPDATE your_table
-    SET processed = 1
-    WHERE condition = true;
+sum_sbu_cost_map_1:
+  query:
+    select "Report Category", "Sbu Name", count("Cost Center Code - BJ") as count_cost_code_bj
+    from [dfinrpt].[dbo].[sbu_cost_map]
+    group by "Report Category", "Sbu Name"
 
 
 
