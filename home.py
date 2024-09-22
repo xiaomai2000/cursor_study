@@ -13,11 +13,20 @@ class HomePage:
 
     def display_title(self):
         self.logger.info("Displaying the home page title")
-        st.title("Welcome to the Finance P&L Tool!")
+        st.title("Welcome to TS Finance P&L Reporting Tool")
 
 def main():
     page = HomePage()
     page.display_title()
+
+
+st.set_page_config(
+    layout="wide",
+    page_title='TS Finance P&L Reporting Tool',
+    page_icon='gz_icon.jpeg'
+)
+
+st.sidebar.markdown('# Menu')
 
 if __name__ == "__main__":
     main()
